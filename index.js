@@ -23,10 +23,17 @@ const answers = [
 ];
 
 app.command("/8ball-ping", async ({ command, ack, respond }) => {
-  const start = Date.now();
   await ack();
-  const answers = answers[Math.floor(Math.random() * answers.length)];
-  await respond({ text: answers });
+  const question = command.text;
+  const answer = answers[Math.floor(Math.random() * answers.length)];
+
+  if (!question) {
+    await respond({ text: "Ask me something!" });
+    return;
+}
+
+await respond({ text: answer });
+
 });
 
 (async () => {
