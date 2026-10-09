@@ -40,6 +40,22 @@ await respond({ text: answer, response_type: "in_channel" });
 
 });
 
+app.command("/hrandom-number", async ({ ack, respond }) => {
+  await ack();
+  const n = Math.floor(Math.random() * 100) + 1;
+  await respond({ text: `Here's your random number: ${n}`, response_type: "in_channel" });
+});
+
+app.command("/hrandom-color", async ({ ack, respond }) => {
+  await ack();
+  const hex = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase();
+  await respond({
+    response_type: "in_channel",
+    attachments: [{color: hex, text: `Here's your random color: ${hex}`}]
+  });
+});
+
+
 (async () => {
   await app.start();  
   console.log("bot is running!");
