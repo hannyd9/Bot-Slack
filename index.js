@@ -19,6 +19,10 @@ const answers = [
     "Without a doubt.",
     "If you want it, it will happen.",
     "I have no idea.",
+    "The stars say maybe.",
+    "Don't count on it.",
+    "You will find out soon.",
+    "The answer is unclear.",
     "All roads lead to Rome..."
 ];
 
