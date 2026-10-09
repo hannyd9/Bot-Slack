@@ -32,11 +32,11 @@ app.command("/8ball-ping", async ({ command, ack, respond }) => {
     return;
 }
 
-await respond({ text: answer });
+await respond({ text: answer, response_type: "in_channel" });
 
 });
 
 (async () => {
-  await app.start();
+  await app.start();  
   console.log("bot is running!");
 })();
